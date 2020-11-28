@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stream_project/data_pulling.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,7 +48,7 @@ class _CovidCounter extends State<CovidCounter>{
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("Placeholder")
+      child: new DataPulling().showInfo(),
     );
   }
   
