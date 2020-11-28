@@ -12,8 +12,10 @@ class DataPulling {
   }
 
   Future<Response> _grabJson() {
+    String yesterday = DateTime.now().toUtc().subtract(new Duration(days: 1)).toString().split(' ')[0];
+    String dayBefore = DateTime.now().toUtc().subtract(new Duration(days: 2)).toString().split(' ')[0];
     String url =
-        'https://api.covid19api.com/total/country/united-states/status/deaths?from=2020-11-26T00:00:00Z&to=2020-11-27T00:00:00Z';
+        'https://api.covid19api.com/total/country/united-states/status/deaths?from='+dayBefore+'T00:00:00Z&to='+yesterday+'T00:00:00Z';
     return _client.get(url);
   }
 
